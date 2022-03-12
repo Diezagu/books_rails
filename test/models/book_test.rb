@@ -27,5 +27,4 @@ class BookTest < ActiveSupport::TestCase
 
     assert book.valid?
   end
-
 end
