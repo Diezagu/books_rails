@@ -33,7 +33,7 @@ class UsersController < ApplicationController
             flash[:noticalerte] = 'error while updating a user'
         end
 
-        redirect_to user_path
+        redirect_to users_path
     end
 
     def destroy

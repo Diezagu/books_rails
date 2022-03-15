@@ -4,6 +4,3 @@ diego:
   name: Diego
   age: 22
 
-two:
-  name: MyString
-  age: 1
