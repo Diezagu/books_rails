@@ -12,7 +12,7 @@ class UsersController < ApplicationController
             redirect_to users_path
         else
             flash[:alert] = 'error while creating user'
-            redirect_to new_user_path
+            render :new
         end
 
     end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
             redirect_to users_path
         else
             flash[:alert] = 'error while updating a user'
-            redirect_to edit_user_path
+            render :edit
         end
 
     end

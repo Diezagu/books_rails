@@ -21,7 +21,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test 'should not create a user with incorrect values' do
     post users_path, params: { user: { name: '', age: 22 } }
 
-    assert_redirected_to new_user_path
+    assert_response :success
     assert_equal 'error while creating user', flash[:alert]
   end
 
@@ -53,7 +53,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test 'should not update a user with incorrect values' do
     put user_path(@user), params: { user: { name: '', age: 19 } }
 
-    assert_redirected_to edit_user_path(@user)
+    assert_response :success
     assert_equal 'error while updating a user', flash[:alert]
   end
 
