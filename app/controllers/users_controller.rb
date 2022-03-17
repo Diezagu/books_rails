@@ -9,11 +9,12 @@ class UsersController < ApplicationController
         
         if user.save
             flash[:notice] = 'user created!'
+            redirect_to users_path
         else
             flash[:alert] = 'error while creating user'
+            redirect_to new_user_path
         end
 
-        redirect_to users_path
     end
 
     def new
@@ -29,11 +30,12 @@ class UsersController < ApplicationController
     def update
         if @user.update(permitted_params)
             flash[:notice] = 'user updated!'
+            redirect_to users_path
         else
-            flash[:noticalerte] = 'error while updating a user'
+            flash[:alert] = 'error while updating a user'
+            redirect_to edit_user_path
         end
 
-        redirect_to users_path
     end
 
     def destroy

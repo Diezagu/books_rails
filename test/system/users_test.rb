@@ -14,21 +14,35 @@ class UsersTest < ApplicationSystemTestCase
 
         fill_in 'Name', with: 'Oscar'
         fill_in 'Age', with: 19
-
         click_on 'Create User'
+
         assert_content 'user created!'
     end
 
     test 'show a user' do
         visit users_path
         user = users(:diego)
+
         click_on 'Show', match: :first
 
         assert_content user.name
     end
 
-    test 'destroy a us' do
-        visit users_path()
+    test 'Edit a user' do
+        visit users_path
+        user = users(:diego)
+        
+        click_on 'Edit'
+
+        fill_in 'Name', with: 'Diego'
+        fill_in 'Age', with: 12
+        click_on 'Edit User'
+
+        assert_content user.name
+    end
+
+    test 'destroy a user' do
+        visit users_path
 
         page.accept_alert 'Are u sure?' do
             click_on 'Destroy'
