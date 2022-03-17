@@ -1,0 +1,21 @@
+<h2>CreatEdite a book</h2>
+<hr/>
+<br/>
+<%= form_with model: @book, method: :put do |f|%>
+  </div>
+    <%= f.label :title, 'Title:' %>
+    <%= f.text_field :title %>
+  <div>
+  <br>
+  <div>
+    <%= f.label :author_id, 'Author:' %>
+    <%= f.select :author_id, get_authors() %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :pages, 'Pages:' %>
+    <%= f.number_field :pages %>
+  </div>
+  <br>
+  <%= f.submit 'Edit Book' %>
+<% end %>
