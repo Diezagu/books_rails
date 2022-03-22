@@ -19,6 +19,17 @@ class UsersTest < ApplicationSystemTestCase
         assert_content 'user created!'
     end
 
+    test 'create a user with incorrect values' do
+        visit users_path
+        click_on 'Create'
+
+        fill_in 'Name', with: ''
+        fill_in 'Age', with: 19
+        click_on 'Create User'
+
+        assert_content 'error while creating user'
+    end
+
     test 'show a user' do
         visit users_path
         user = users(:diego)
@@ -39,6 +50,19 @@ class UsersTest < ApplicationSystemTestCase
         click_on 'Edit User'
 
         assert_content user.name
+    end
+
+    test 'Edit a user with incorrect values' do
+        visit users_path
+        user = users(:diego)
+        
+        click_on 'Edit'
+
+        fill_in 'Name', with: ''
+        fill_in 'Age', with: 12
+        click_on 'Edit User'
+
+        assert_content 'error while updating a user'
     end
 
     test 'destroy a user' do

@@ -11,8 +11,8 @@ class UsersController < ApplicationController
             flash[:notice] = 'user created!'
             redirect_to users_path
         else
-            flash[:alert] = 'error while creating user'
-            render :new
+            flash.now[:alert] = 'error while creating user'
+            render 'new'
         end
 
     end
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
             flash[:notice] = 'user updated!'
             redirect_to users_path
         else
-            flash[:alert] = 'error while updating a user'
+            flash.now[:alert] = 'error while updating a user'
             render :edit
         end
 
