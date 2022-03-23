@@ -1,0 +1,13 @@
+<h2>Books</h2>
+<%= link_to 'Create', new_book_path %>
+<% @books.each do |book| %>
+  <hr>
+  <p>
+    <%= book.title %>
+    <%= book.author.name %>
+    <%= book.pages %>
+  </p>
+  <%= link_to 'Show', book_path(book) %>
+  <%= link_to 'Edit', edit_book_path(book) %>
+  <%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: 'Are u sure?' } %>
+<% end %>

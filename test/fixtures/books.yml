@@ -1,11 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  author: MyString
-  pages: 1
+first_book:
+  title: TWGR
+  author: :diego
+  pages: 580
 
-two:
-  title: MyString
-  author: MyString
-  pages: 1

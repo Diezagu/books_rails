@@ -1,0 +1,18 @@
+<%= form_with model: @book, local: true do |f|%>
+  </div>
+    <%= f.label :title, 'Title:' %>
+    <%= f.text_field :title %>
+  <div>
+  <br>
+  <div>
+    <%= f.label :author_id, 'Author:' %>
+    <%= f.select :author_id, author_select_options %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :pages, 'Pages:' %>
+    <%= f.number_field :pages %>
+  </div>
+  <br>
+  <%= f.submit %>
+<% end %>
