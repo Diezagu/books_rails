@@ -9,7 +9,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_content books(:first_book).title
   end
 
-  test 'creating a user' do
+  test 'creating a book' do
     click_on 'Create'
 
     fill_in 'Title', with: 'JSG'
@@ -20,13 +20,13 @@ class BooksTest < ApplicationSystemTestCase
     assert_content 'book created!'
   end
 
-  test 'click on show' do
+  test 'should show a book' do
     click_on 'Show'
 
     assert_content books(:first_book).title
   end
 
-  test 'click on edit' do
+  test 'should update a book' do
     click_on 'Edit'
     
     fill_in 'Title', with: 'PSG'
@@ -37,7 +37,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_content 'book updated!'
   end
   
-  test 'click on destroy' do
+  test 'should destroy a book' do
     page.accept_alert 'Are u sure?' do
       click_on 'Destroy'
     end
