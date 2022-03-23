@@ -14,8 +14,8 @@ class BooksController < ApplicationController
       flash[:notice] = 'book created!'
       redirect_to books_path
     else
-      flash[:alert] = 'error while creating book'
-      redirect_to new_book_path
+      flash.now[:alert] = 'error while creating book'
+      render 'new'
     end
   end
 
@@ -27,8 +27,8 @@ class BooksController < ApplicationController
       flash[:notice] = 'book updated!'
       redirect_to books_path
     else
-      flash[:alert] = 'error while updating book'
-      redirect_to edit_book_path(@book)
+      flash.now[:alert] = 'error while updating book'
+      render 'edit'
     end
   end
 
