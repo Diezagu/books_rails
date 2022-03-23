@@ -9,13 +9,12 @@ class BooksTest < ApplicationSystemTestCase
     assert_content books(:first_book).title
   end
 
-  test 'click on create' do
+  test 'creating a user' do
     click_on 'Create'
 
     fill_in 'Title', with: 'JSG'
     page.select 'Diego', from: 'Author'
     fill_in 'Pages', with: 200
-
     click_on 'Create Book'
 
     assert_content 'book created!'
@@ -33,8 +32,7 @@ class BooksTest < ApplicationSystemTestCase
     fill_in 'Title', with: 'PSG'
     page.select 'Diego', from: 'Author'
     fill_in 'Pages', with: 190
-    
-    click_on 'Edit Book'
+    click_on 'Update Book'
     
     assert_content 'book updated!'
   end

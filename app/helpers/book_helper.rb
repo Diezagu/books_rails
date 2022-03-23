@@ -1,5 +1,5 @@
 module BookHelper
-  def get_authors
-    authors = User.all.map {|author| [author.name, author.id]}
+  def author_select_options
+    User.all.map {|author| [author.name, author.id]}
   end
 end
