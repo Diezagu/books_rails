@@ -1,7 +1,23 @@
+require 'csv'
+
 class UsersController < ApplicationController
+    COLUMNS = ['Name', 'Age'].freeze
     before_action :setup_user, only: %i[ edit show update destroy ]
+
     def index
         @users = User.all
+        respond_to do |format|
+            format.html
+            format.csv { 
+                file = CSV.generate(headers: true) do |csv|
+                    csv << COLUMNS
+                    @users.each do |user|
+                        csv << [user.name, user.age]
+                    end
+                  end
+                send_data file, filename: "users.csv" 
+            }
+        end
     end
 
     def create
@@ -47,8 +63,8 @@ class UsersController < ApplicationController
         
         redirect_to users_path
     end
-    
-    private 
+
+    private
     
     def permitted_params
         params.require(:user).permit(:name, :age)
