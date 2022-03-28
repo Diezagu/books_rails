@@ -1,12 +1,12 @@
 <%= form_with model: @user, method: 'PUT', local: true do |form| %>
-    <div>
-        <%= form.label :name, 'Name' %>
-        <%= form.text_field :name %>
-    </div>
-    <div>
-        <%= form.label :age, 'Age' %>
-        <%= form.number_field :age %>
-    </div>
-    <br>
-    <%= form.submit 'Edit User' %>
+	<div>
+		<%= form.label :name, 'Name' %>
+		<%= form.text_field :name %>
+	</div>
+	<div>
+		<%= form.label :age, 'Age' %>
+		<%= form.number_field :age %>
+	</div>
+	<br>
+	<%= form.submit 'Edit User' %>
 <% end %>
