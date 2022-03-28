@@ -1,22 +1,22 @@
 require 'csv'
 
 class UsersController < ApplicationController
-    COLUMNS = ['Name', 'Age'].freeze
+    FILE_HEADERS = ['Name', 'Age'].freeze
     before_action :setup_user, only: %i[ edit show update destroy ]
 
     def index
         @users = User.all
         respond_to do |format|
             format.html
-            format.csv { 
+            format.csv do
                 file = CSV.generate(headers: true) do |csv|
-                    csv << COLUMNS
+                    csv << FILE_HEADERS
                     @users.each do |user|
                         csv << [user.name, user.age]
                     end
                   end
-                send_data file, filename: "users.csv" 
-            }
+                send_data file, filename: "users #{ Date.strptime(Date.today.to_s, '%Y-%m-%d') }.csv" 
+            end
         end
     end
 
