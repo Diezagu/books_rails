@@ -44,4 +44,10 @@ class BooksTest < ApplicationSystemTestCase
 
     assert_content 'book deleted!'
   end
+
+  test 'should download the users report' do
+    click_on 'Download Report'
+
+    assert_response :success
+  end
 end
