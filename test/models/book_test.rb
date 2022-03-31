@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
@@ -12,7 +14,7 @@ class BookTest < ActiveSupport::TestCase
     book = Book.new
 
     refute book.valid?
-    assert_equal "must exist", book.errors.messages[:author].first
+    assert_equal 'must exist', book.errors.messages[:author].first
   end
 
   test 'it is not valid without pages' do

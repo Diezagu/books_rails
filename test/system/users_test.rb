@@ -1,76 +1,77 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class UsersTest < ApplicationSystemTestCase
-	test 'visiting the index' do
-		visit users_path
+  setup do
+    visit users_path
+  end
 
-		assert_content 'Authors'
-	end
+  test 'visiting the index' do
+    assert_content 'Authors'
+  end
 
-	test 'create a user' do
-		visit users_path
-		click_on 'Create'
+  test 'create a user' do
+    click_on 'Create'
 
-		fill_in 'Name', with: 'Oscar'
-		fill_in 'Age', with: 19
-		click_on 'Create User'
+    fill_in 'Name', with: 'Oscar'
+    fill_in 'Age', with: 19
+    click_on 'Create User'
 
-		assert_content 'user created!'
-	end
+    assert_content 'user created!'
+  end
 
-	test 'create a user with incorrect values' do
-		visit users_path
-		click_on 'Create'
+  test 'create a user with incorrect values' do
+    click_on 'Create'
 
-		fill_in 'Name', with: ''
-		fill_in 'Age', with: 19
-		click_on 'Create User'
+    fill_in 'Name', with: ''
+    fill_in 'Age', with: 19
+    click_on 'Create User'
 
-		assert_content 'error while creating user'
-	end
+    assert_content 'error while creating user'
+  end
 
-	test 'show a user' do
-		visit users_path
-		user = users(:diego)
+  test 'show a user' do
+    user = users(:diego)
 
-		click_on 'Show', match: :first
+    click_on 'Show', match: :first
 
-		assert_content user.name
-	end
+    assert_content user.name
+  end
 
-	test 'Edit a user' do
-		visit users_path
-		user = users(:diego)
-		
-		click_on 'Edit'
+  test 'Edit a user' do
+    user = users(:diego)
 
-		fill_in 'Name', with: 'Diego'
-		fill_in 'Age', with: 12
-		click_on 'Edit User'
+    click_on 'Edit'
 
-		assert_content user.name
-	end
+    fill_in 'Name', with: 'Diego'
+    fill_in 'Age', with: 12
+    click_on 'Edit User'
 
-	test 'Edit a user with incorrect values' do
-		visit users_path
-		user = users(:diego)
-		
-		click_on 'Edit'
+    assert_content user.name
+  end
 
-		fill_in 'Name', with: ''
-		fill_in 'Age', with: 12
-		click_on 'Edit User'
+  test 'Edit a user with incorrect values' do
+    click_on 'Edit'
 
-		assert_content 'error while updating a user'
-	end
+    fill_in 'Name', with: ''
+    fill_in 'Age', with: 12
+    click_on 'Edit User'
 
-	test 'destroy a user' do
-		visit users_path
+    assert_content 'error while updating a user'
+  end
 
-		page.accept_alert 'Are u sure?' do
-				click_on 'Destroy'
-		end
+  test 'destroy a user' do
+    page.accept_alert 'Are u sure?' do
+      click_on 'Destroy'
+    end
 
-		assert_content 'user deleted!'
-	end
+    assert_content 'user deleted!'
+  end
+
+  test 'should download the users report' do
+    click_on 'Download Report'
+
+    assert_content 'Authors'
+  end
 end
