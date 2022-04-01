@@ -37,23 +37,31 @@ Style/ClassAndModuleChildren:
     - 'test/test_helper.rb'
 
 Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/controllers/books_controller.rb'
-    - 'app/controllers/users_controller.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/helpers/book_helper.rb'
-    - 'app/models/application_record.rb'
-    - 'config/application.rb'
-    - 'db/migrate/20220311062118_create_users.rb'
-    - 'db/migrate/20220312165414_create_books.rb'
+  Enabled: false
 
 Style/ExpandPathArguments:
   Exclude:
     - 'bin/bundle'
     - 'bin/rails'
     - 'bin/rake'
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    -  'test/test_helper.rb'
+    -  'test/channels/application_cable/connection_test.rb'
+    -  'db/seeds.rb'
+    -  'config/**/*'
+    -  'Rakefile'
+    -  'app/channels/application_cable/channel.rb'
+    -  'app/channels/application_cable/connection.rb'
+    -  'db/schema.rb'
+    -  'config.ru'
+    -  'bin/**/*'
+    -  'app/models/application_record.rb'
+    -  'app/mailers/application_mailer.rb'
+    -  'app/jobs/application_job.rb'
+    -  'app/helpers/application_helper.rb'
+    -  'app/controllers/application_controller.rb'
 
 Style/GlobalStdStream:
   Exclude:
