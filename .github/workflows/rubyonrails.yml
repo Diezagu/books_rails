@@ -35,7 +35,7 @@ jobs:
         run: yarn install
           
       - name: Run linters
-        run: rubocop --parallel
+        run: bundle exec rubocop --parallel
           
   tests:
     name: Tests
@@ -90,17 +90,17 @@ jobs:
           RAILS_ENV: test
           WITH_COVERAGE: true
           DISABLE_SPRING: 1
-        run:  rails db:schema:load
+        run:  bundle exec rails db:schema:load
 
       - name: Run tests
         env:
           PGHOST: localhost
           PGUSER: postgres
           PGPASSWORD: postgres
-        run:  rails test
+        run:  bundle exec rails test
         
   system_tests:
-    name: Tests
+    name: System tests
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -159,4 +159,4 @@ jobs:
           PGHOST: localhost
           PGUSER: postgres
           PGPASSWORD: postgres
-        run:  rails test:system
+        run: bundle exec rails test:system
