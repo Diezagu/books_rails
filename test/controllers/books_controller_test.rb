@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class BooksControllerTest < ActionDispatch::IntegrationTest
@@ -20,7 +22,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   test 'should create a book' do
     user = users(:diego)
 
-    post books_path( params: { book: { title: 'TWGR', author_id: user.id, pages: 250 } })
+    post books_path(params: { book: { title: 'TWGR', author_id: user.id, pages: 250 } })
 
     assert_redirected_to books_path
     assert_equal 'book created!', flash[:notice]
@@ -43,10 +45,10 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
 
   test 'should show a book' do
     get book_path(@book)
-    
+
     assert_response :success
-  end 
-  
+  end
+
   test 'should destroy a book' do
     delete book_path(@book)
 

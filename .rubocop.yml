@@ -1,1 +1,116 @@
-inherit_from: .rubocop_todo.yml
+Layout/MultilineOperationIndentation:
+  Exclude:
+    - 'bin/bundle'
+
+Layout/ArgumentAlignment:
+  Exclude:
+    - 'bin/webpack'
+    - 'bin/webpack-dev-server'
+
+Layout/EmptyLineAfterGuardClause:
+  Exclude:
+    - 'bin/bundle'
+
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - 'db/schema.rb'
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Exclude:
+    - 'config/environments/production.rb'
+
+Metrics/CyclomaticComplexity:
+  Exclude: 
+    -  'bin/bundle'
+
+Metrics/MethodLength:
+  Exclude: 
+    -  'bin/bundle'
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    -  'bin/bundle'
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'test/channels/application_cable/connection_test.rb'
+    - 'test/test_helper.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Style/ExpandPathArguments:
+  Exclude:
+    - 'bin/bundle'
+    - 'bin/rails'
+    - 'bin/rake'
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    -  'test/test_helper.rb'
+    -  'test/channels/application_cable/connection_test.rb'
+    -  'db/seeds.rb'
+    -  'config/**/*'
+    -  'Rakefile'
+    -  'app/channels/application_cable/channel.rb'
+    -  'app/channels/application_cable/connection.rb'
+    -  'db/schema.rb'
+    -  'config.ru'
+    -  'bin/**/*'
+    -  'app/models/application_record.rb'
+    -  'app/mailers/application_mailer.rb'
+    -  'app/jobs/application_job.rb'
+    -  'app/helpers/application_helper.rb'
+    -  'app/controllers/application_controller.rb'
+
+Style/GlobalStdStream:
+  Exclude:
+    - 'config/environments/production.rb'
+
+Style/IfUnlessModifier:
+  Exclude:
+    - 'bin/bundle'
+
+Style/NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'
+
+Style/PerlBackrefs:
+  Exclude:
+    - 'bin/bundle'
+
+Style/RedundantBegin:
+  Exclude:
+    - 'bin/yarn'
+
+Style/RedundantFetchBlock:
+  Exclude:
+    - 'config/puma.rb'
+
+Style/SpecialGlobalVars:
+  EnforcedStyle: use_perl_names
+
+Style/StderrPuts:
+  Exclude:
+    - 'bin/yarn'
+
+Style/StringLiterals:
+  Exclude:
+    - 'bin/bundle'
+    - 'bin/webpack'
+    - 'bin/webpack-dev-server'
+    - 'bin/yarn'
+    - 'config/environments/production.rb'
+    - 'config/puma.rb'
+    - 'config/spring.rb'
+    - 'db/schema.rb'
+    - 'test/application_system_test_case.rb'
+    - 'test/channels/application_cable/connection_test.rb'
+
+Style/SymbolArray:
+  Exclude:
+    - 'Gemfile'
+
+Layout/LineLength:
+  Exclude:
+    -  'bin/bundle'

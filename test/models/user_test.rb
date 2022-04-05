@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
@@ -9,7 +11,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'it is not valid without age' do
-    user = User.new(name: "Diego")
+    user = User.new(name: 'Diego')
 
     refute user.valid?
     assert_equal "can't be blank", user.errors.messages[:age].first

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
-  before_action :setup_book, only: %i[ edit update show destroy ]
+  before_action :setup_book, only: %i[edit update show destroy]
   def index
     @books = Book.all
   end
@@ -19,8 +21,7 @@ class BooksController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @book.update(permitted_params)
@@ -32,9 +33,8 @@ class BooksController < ApplicationController
     end
   end
 
-  def show
-  end
-  
+  def show; end
+
   def destroy
     if @book.destroy
       flash[:notice] = 'book deleted!'

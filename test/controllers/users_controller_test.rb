@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
@@ -10,7 +12,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
   end
- 
+
   test 'should create a user' do
     post users_path, params: { user: { name: 'Diego', age: 22 } }
 
