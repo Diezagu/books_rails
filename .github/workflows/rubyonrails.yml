@@ -1,6 +1,5 @@
 name: books_ci
-on:
-  add_missing_config
+on: push
   
 jobs:
   linters:
