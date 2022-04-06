@@ -83,7 +83,7 @@ jobs:
         run: yarn install
 
       - name: Start psql service
-        run: /etc/init.d/postgresql start
+        run: systemctl start postgresql.service
 
       - name: Create database
         run: bundle exec rails db:create
@@ -151,7 +151,7 @@ jobs:
         run: yarn install
 
       - name: Start psql service
-        run: /etc/init.d/postgresql start
+        run: systemctl start postgresql.service
 
       - name: Create database
         run: bundle exec rails db:create
