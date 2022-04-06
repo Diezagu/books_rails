@@ -82,9 +82,6 @@ jobs:
       - name: Install packages
         run: yarn install
 
-      - name: Start psql service
-        run: /etc/init.d/postgresql start
-
       - name: Create database
         run: bundle exec rails db:create
 
@@ -149,9 +146,6 @@ jobs:
             
       - name: Install packages
         run: yarn install
-
-      - name: Start psql service
-        run: /etc/init.d/postgresql start
 
       - name: Create database
         run: bundle exec rails db:create
