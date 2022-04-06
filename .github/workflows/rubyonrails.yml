@@ -81,7 +81,10 @@ jobs:
             
       - name: Install packages
         run: yarn install
-          
+
+      - name: Create database
+        run: bundle exec rails db:create
+
       - name: Setup test database
         env:
           PGHOST: localhost
@@ -90,9 +93,7 @@ jobs:
           RAILS_ENV: test
           WITH_COVERAGE: true
           DISABLE_SPRING: 1
-        run:  
-        -bundle exec rails db:create
-        -bundle exec rails db:schema:load
+        run: bundle exec rails db:schema:load
 
       - name: Run tests
         env:
@@ -146,6 +147,9 @@ jobs:
       - name: Install packages
         run: yarn install
 
+        name: Create database
+        run: bundle exec rails db:create
+
       - name: Setup test database
         env:
           PGHOST: localhost
@@ -155,9 +159,7 @@ jobs:
           WITH_COVERAGE: true
           DISABLE_SPRING: 1
 
-        run:
-        - bundle exec rails db:create
-        - bundle exec rails db:schema:load 
+        run: bundle exec rails db:create
 
       - name: Run system tests
         env:
