@@ -147,7 +147,7 @@ jobs:
       - name: Install packages
         run: yarn install
 
-        name: Create database
+      - name: Create database
         run: bundle exec rails db:create
 
       - name: Setup test database
