@@ -1,4 +1,4 @@
-<%= form_with model: @user, method: 'PUT', local: true do |form| %>
+<%= app_form_with model: @user, method: 'PUT', local: true do |form| %>
 	<div>
 		<%= form.label :name, 'Name' %>
 		<%= form.text_field :name %>
