@@ -5,5 +5,5 @@ class Book < ApplicationRecord
   has_one_attached :cover
 
   validates :title, :author, :pages, presence: true
-  validates :cover, content_type: ['image/png', 'image/jpg', 'image/jpeg'], dimension: { width: 200, height: 200 }
+  validates :cover, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 end
