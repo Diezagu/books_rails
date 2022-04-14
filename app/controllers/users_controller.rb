@@ -4,7 +4,7 @@ require 'csv'
 
 class UsersController < ApplicationController
   FILE_HEADERS = %w[Name Age].freeze
-  before_action :setup_user, only: %i[edit show update destroy]
+  before_action :setup_user, only: %i[ show destroy]
 
   def index
     @users = User.all
@@ -17,35 +17,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def create
-    @user = User.new(permitted_params)
-
-    if @user.save
-      flash[:notice] = 'user created!'
-      redirect_to users_path
-    else
-      flash.now[:alert] = 'error while creating user'
-      render 'new'
-    end
-  end
-
-  def new
-    @user = User.new
-  end
-
-  def edit; end
-
   def show; end
-
-  def update
-    if @user.update(permitted_params)
-      flash[:notice] = 'user updated!'
-      redirect_to users_path
-    else
-      flash.now[:alert] = 'error while updating a user'
-      render :edit
-    end
-  end
 
   def destroy
     if @user.destroy
@@ -59,7 +31,7 @@ class UsersController < ApplicationController
   private
 
   def permitted_params
-    params.require(:user).permit(:name, :age)
+    params.require(:user).permit(:name, :age, :email, :password)
   end
 
   def setup_user
