@@ -4,7 +4,7 @@ require 'csv'
 
 class UsersController < ApplicationController
   FILE_HEADERS = %w[Name Age].freeze
-  before_action :setup_user, only: %i[ show destroy]
+  before_action :setup_user, only: %i[show destroy]
 
   def index
     @users = User.all
