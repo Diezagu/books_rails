@@ -3,7 +3,10 @@
 require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
   setup do
+    @user = users(:diego)
+    sign_in @user
     visit books_path
   end
 
@@ -37,13 +40,5 @@ class BooksTest < ApplicationSystemTestCase
     click_on 'Update Book'
 
     assert_content 'book updated!'
-  end
-
-  test 'should destroy a book' do
-    page.accept_alert 'Are u sure?' do
-      click_on 'Destroy'
-    end
-
-    assert_content 'book deleted!'
   end
 end

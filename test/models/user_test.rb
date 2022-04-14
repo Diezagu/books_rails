@@ -4,7 +4,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   test 'it is not valid without name' do
-    user = User.new(age: 25)
+    user = User.new(name: '', age: 25)
 
     refute user.valid?
     assert_equal "can't be blank", user.errors.messages[:name].first

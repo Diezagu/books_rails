@@ -3,8 +3,11 @@
 require 'test_helper'
 
 class BooksControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
     @book = books(:first_book)
+    @user = users(:diego)
+    sign_in @user
   end
 
   test 'should have index' do
