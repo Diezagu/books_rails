@@ -77,7 +77,6 @@ Style/IfUnlessModifier:
 Style/NumericLiterals:
   Exclude:
     - 'db/schema.rb'
-    - 'test/**/*'
 
 Style/PerlBackrefs:
   Exclude:
@@ -123,7 +122,7 @@ Layout/LineLength:
     - 'bin/bundle'
     - 'db/schema.rb'
     - 'db/migrate/**/*'
-    - 'config/initializers/**/*'
+    - 'config/initializers/devise.rb'
 
 Style/WordArray:
   Exclude:
