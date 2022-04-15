@@ -3,7 +3,6 @@
 require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
-  include Devise::Test::IntegrationHelpers
   setup do
     @user = users(:diego)
     sign_in @user

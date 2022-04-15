@@ -3,7 +3,6 @@
 require 'application_system_test_case'
 
 class UsersTest < ApplicationSystemTestCase
-  include Devise::Test::IntegrationHelpers
   setup do
     sign_in users(:diego)
     visit users_path
@@ -19,8 +18,8 @@ class UsersTest < ApplicationSystemTestCase
     fill_in 'Email', with: 'user@exmple.com'
     fill_in 'Name', with: ''
     fill_in 'Age', with: 12
-    fill_in 'user_password', with: 123456
-    fill_in 'Password confirmation', with: 123456
+    fill_in 'user_password', with: '123456'
+    fill_in 'Password confirmation', with: '123456'
     fill_in 'user_current_password', with: 'example'
     click_on 'Update'
 
@@ -33,8 +32,8 @@ class UsersTest < ApplicationSystemTestCase
     fill_in 'Email', with: 'user3@exmple.com'
     fill_in 'Name', with: 'Victor'
     fill_in 'Age', with: 12
-    fill_in 'user_password', with: 123456
-    fill_in 'Password confirmation', with: 123456
+    fill_in 'user_password', with: '123456'
+    fill_in 'Password confirmation', with: '123456'
     fill_in 'user_current_password', with: 'example'
     click_on 'Update'
 
@@ -62,8 +61,8 @@ class UsersTest < ApplicationSystemTestCase
     fill_in 'Email', with: 'user3@exmple.com'
     fill_in 'Name', with: 'Victor'
     fill_in 'Age', with: 12
-    fill_in 'user_password', with: 123456
-    fill_in 'Password confirmation', with: 123456
+    fill_in 'user_password', with: '123456'
+    fill_in 'Password confirmation', with: '123456'
     click_on 'Sign up'
 
     assert_content 'Welcome! You have signed up successfully.'
@@ -76,8 +75,8 @@ class UsersTest < ApplicationSystemTestCase
     fill_in 'Email', with: 'user3@exmple.com'
     fill_in 'Name', with: ''
     fill_in 'Age', with: 12
-    fill_in 'user_password', with: 123456
-    fill_in 'Password confirmation', with: 123456
+    fill_in 'user_password', with: '123456'
+    fill_in 'Password confirmation', with: '123456'
     click_on 'Sign up'
 
     assert_content "Name can't be blank"
