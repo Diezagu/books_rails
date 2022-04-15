@@ -122,6 +122,7 @@ Layout/LineLength:
     - 'bin/bundle'
     - 'db/schema.rb'
     - 'db/migrate/**/*'
+    - 'config/initializers/devise.rb'
 
 Style/WordArray:
   Exclude:
@@ -130,3 +131,7 @@ Style/WordArray:
 Metrics/BlockLength:
   Exclude:
     - 'db/schema.rb'
+
+Layout/EmptyLines:
+  Exclude:
+    - 'db/migrate/**/*'

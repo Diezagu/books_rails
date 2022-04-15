@@ -11,8 +11,8 @@ class BooksController < ApplicationController
   end
 
   def create
-    book = Book.new(permitted_params)
-    if book.save
+    @book = current_user.books.new(permitted_params)
+    if @book.save
       flash[:notice] = 'book created!'
       redirect_to books_path
     else

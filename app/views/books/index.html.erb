@@ -1,6 +1,6 @@
 <h2>Books</h2>
 <%= link_to 'Create', new_book_path %>
-<% @books.each do |book| %>
+<% current_user.books.each do |book| %>
   <hr>
   <p>
     <%= book.title %>

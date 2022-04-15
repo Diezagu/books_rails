@@ -1,5 +1,15 @@
 <div>
-	<h2>Author</h2>
-	<p> <%= @user.name %> </p>
-	<p> <%= @user.age %> </p>
+  <h2>Author</h2>
+  <p> <%= @user.name %> </p>
+  <p> <%= @user.age %> </p>
+  <% @user.books.each do |book| %>
+    <ol>
+      <li>
+        <p> <%= book.title %> </p>
+        <p> <%= book.pages %> </p>
+      </li>
+    </ol>
+  <% end %>
+  <hr>
+  <%= link_to 'Back', users_path(format: :html) %>
 </div>
