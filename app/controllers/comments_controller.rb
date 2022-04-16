@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  before_action :setup_comment, only: %i[edit update show destroy]
+
   def index
     @comments = Comment.all
   end
@@ -20,12 +22,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-    @comment = Comment.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @comment = Comment.find(params[:id])
     if @comment.update(permitted_params)
       flash[:notice] = 'comment updated!'
       redirect_to comments_path
@@ -35,12 +34,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def show
-    @comment = Comment.find(params[:id])
-  end
+  def show; end
 
   def destroy
-    @comment = Comment.find(params[:id])
     if @comment.destroy
       flash[:notice] = 'comment deleted!'
     else
@@ -53,5 +49,9 @@ class CommentsController < ApplicationController
 
   def permitted_params
     params.require(:comment).permit(:author_id, :text)
+  end
+
+  def setup_comment
+    @comment = Comment.find(params[:id])
   end
 end
