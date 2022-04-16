@@ -4,12 +4,11 @@
     <title>BookProject</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "application", defer: true %>
   </head>
 
-  <body>
+  <body class='container mx-auto'>
     <% if flash[:notice] %>
       <p> <%= flash[:notice] %> </p>
     <% elsif flash[:alert] %>
