@@ -7,7 +7,7 @@ class CommentTest < ActiveSupport::TestCase
     comment = Comment.new(text: 'Nice book')
 
     refute comment.valid?
-    assert_equal "can't be blank", comment.errors.messages[:author].first
+    assert_equal 'must exist', comment.errors.messages[:author].first
   end
 
   test 'it is not valid without text' do
