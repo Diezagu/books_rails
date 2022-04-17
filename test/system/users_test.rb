@@ -54,6 +54,12 @@ class UsersTest < ApplicationSystemTestCase
     assert_content 'Authors'
   end
 
+  test 'should show the books of current user' do
+    click_on 'Go to books'
+
+    assert_content users(:diego).books.first.title
+  end
+
   test 'success creating user with correct data' do
     click_on 'Log out'
     click_on 'Sign up'

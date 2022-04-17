@@ -1,7 +1,8 @@
 <h1>Authors</h1>
 <hr/>
-  <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
-  <%= button_to 'Edit', edit_user_registration_path, method: :get %>
+  <%= link_to 'Log out', destroy_user_session_path, method: :delete %><br>
+  <%= link_to 'Edit', edit_user_registration_path, method: :get %><br>
+  <%= link_to 'Go to books', books_path, method: :get %>
 <hr/>
 <% @users.each do |user| %>
   <% if current_user != nil %>
