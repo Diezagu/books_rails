@@ -33,7 +33,9 @@ class BooksController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @comment = @book.comments.new
+  end
 
   def destroy
     if @book.destroy
