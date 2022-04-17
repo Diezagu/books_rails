@@ -56,6 +56,7 @@ class UsersTest < ApplicationSystemTestCase
 
   test 'should show the books of current user' do
     click_on 'Go to books'
+
     assert_content users(:diego).books.first.title
   end
 
