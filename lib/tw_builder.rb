@@ -8,6 +8,16 @@ class TwBuilder < ActionView::Helpers::FormBuilder
     super(method, options)
   end
 
+  def email_field(method, options = {})
+    options = append_html_class(options, 'input')
+    super(method, options)
+  end
+
+  def password_field(method, options = {})
+    options = append_html_class(options, 'input')
+    super(method, options)
+  end
+
   def select(method, choices = nil, options = {}, html_options = {}, &block)
     html_options = append_html_class(html_options, 'select')
     super(method, choices, options, html_options, &block)
