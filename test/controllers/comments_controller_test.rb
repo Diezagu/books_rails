@@ -7,52 +7,32 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     sign_in users(:diego)
   end
 
-  test 'should have index' do
-    get comments_path
-
-    assert_response :success
-  end
-
-  test 'should have new' do
-    get new_comment_path
-
-    assert_response :success
-  end
-
   test 'should create a comment' do
     user = users(:diego)
-    post comments_path(params: { comment: { author_id: user.id, text: 'Nice book' } })
+    book = books(:first_book)
+    post book_comments_path(book, params: { comment: { author_id: user.id, text: 'Nice book' } })
 
-    assert_redirected_to comments_path
+    assert_redirected_to book_path(book)
     assert_equal 'comment posted!', flash[:notice]
   end
 
-  test 'should have edit' do
-    get edit_comment_path(comments(:first))
+  test 'should destroy a comment of a book' do
+    book = books(:first_book)
+    comment = book.comments.new(author: users(:diego), text: 'nice book')
+    comment.save
+    delete book_comment_path(book, comment)
 
-    assert_response :success
-  end
-
-  test 'should update a comment' do
-    @comment = comments(:first)
-    user = users(:diego)
-
-    put comment_path(@comment, params: { comment: { author_id: user.id, text: 'It sucks!' } })
-
-    assert_redirected_to comments_path
-    assert_equal 'comment updated!', flash[:notice]
-  end
-
-  test 'should show a book' do
-    get comment_path(comments(:first))
-
-    assert_response :success
-  end
-
-  test 'should destroy a book' do
-    delete comment_path(comments(:first))
-
-    assert_redirected_to comments_path
+    assert_redirected_to book_path(book)
     assert_equal 'comment deleted!', flash[:notice]
+  end
+
+  test 'should not destroy a comment if author is different to current user' do
+    book = books(:first_book)
+    comment = book.comments.new(author: users(:urbi), text: 'nice book')
+    comment.save
+
+    assert_raises ActiveRecord::RecordNotFound do
+      delete book_comment_path(book, comment)
+    end
   end
 end
