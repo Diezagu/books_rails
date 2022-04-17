@@ -1,22 +1,19 @@
 <%= app_form_with model: @book, local: true do |f|%>
-  </div>
+  <div class="field">
     <%= f.label :title, 'Title:' %>
     <%= f.text_field :title %>
-  <div>
-  <br>
-  <div>
+  </div>
+  <div class="field">
     <%= f.label :author_id, 'Author:' %>
     <%= f.select :author_id, author_select_options %>
   </div>
-  <br>
-  <div>
+  <div class="field">
+    <%= f.label :cover, 'Cover:' %>
     <%= f.file_field :cover, accept: 'image/*' %>
   </div>
-  <br>
-  <div>
+  <div class="field">
     <%= f.label :pages, 'Pages:' %>
     <%= f.number_field :pages %>
   </div>
-  <br>
   <%= f.submit %>
 <% end %>
