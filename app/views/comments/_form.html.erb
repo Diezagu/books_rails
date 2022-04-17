@@ -1,0 +1,4 @@
+<%= app_form_with url: book_comments_path(@book), model: @comment, method: :post, local: true do |f|%>
+  <%= f.text_area :text, placeholder: 'Post a comment...', required: true %><br>
+  <%= f.submit 'Post' %>
+<% end %>

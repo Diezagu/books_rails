@@ -1,7 +1,21 @@
 <div>
   <h2>Author</h2>
-  <% if @user.avatar.attached? %>
-    <%= image_tag @user.avatar.variant(resize_to_limit: [100, 100]) %>
+  <hr>
+  <p> Name: <%= @user.name %> </p>
+  <p> Age: <%= @user.age %> </p>
+  <hr>
+  <h2>Books of <%= @user.name %> </h2>
+  <% @user.books.each do |book| %>
+    <ol>
+      <li>
+        <% if book.cover.attached? %>
+          <%= image_tag book.cover.variant(resize_to_limit: [100, 100]) %>
+        <% end %>
+        <p> Title: <%= book.title %> </p>
+        <p> Pages: <%= book.pages %> </p>
+        <%= link_to 'Show',  book_path(book)%>
+      </li>
+    </ol>
   <% end %>
   <p>Name: <%= @user.name %> </p>
   <p>Age: <%= @user.age %> </p>
