@@ -47,10 +47,12 @@ ActiveRecord::Schema.define(version: 2022_04_15_235152) do
 
   create_table "comments", force: :cascade do |t|
     t.bigint "author_id"
+    t.bigint "book_id"
     t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_comments_on_author_id"
+    t.index ["book_id"], name: "index_comments_on_book_id"
   end
 
   create_table "users", force: :cascade do |t|
