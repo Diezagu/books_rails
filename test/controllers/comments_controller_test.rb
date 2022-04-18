@@ -10,6 +10,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   test 'should create a comment' do
     user = users(:diego)
     book = books(:first_book)
+
     post book_comments_path(book, params: { comment: { author_id: user.id, text: 'Nice book' } })
 
     assert_redirected_to book_path(book)
@@ -18,8 +19,8 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should destroy a comment of a book' do
     book = books(:first_book)
-    comment = book.comments.new(author: users(:diego), text: 'nice book')
-    comment.save
+    comment = book.comments.create(author: users(:diego), text: 'nice book')
+
     delete book_comment_path(book, comment)
 
     assert_redirected_to book_path(book)
@@ -28,8 +29,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not destroy a comment if author is different to current user' do
     book = books(:first_book)
-    comment = book.comments.new(author: users(:urbi), text: 'nice book')
-    comment.save
+    comment = book.comments.create(author: users(:urbi), text: 'nice book')
 
     assert_raises ActiveRecord::RecordNotFound do
       delete book_comment_path(book, comment)
