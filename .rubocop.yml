@@ -64,7 +64,6 @@ Style/FrozenStringLiteralComment:
     - 'app/jobs/application_job.rb'
     - 'app/helpers/application_helper.rb'
     - 'app/controllers/application_controller.rb'
-    - 'app/helpers/comments_helper.rb'
     - 'db/migrate/**/*'
 
 Style/GlobalStdStream:
