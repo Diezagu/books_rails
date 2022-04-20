@@ -1,7 +1,7 @@
 <h1>Authors</h1>
 <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
 <%= link_to 'Edit', edit_user_registration_path, method: :get %>
-
+<%= link_to 'Go to books', books_path, method: :get %>
 <% @users.each do |user| %>
   <p> <%= user.name %> </p>
   <p> <%= user.age %> </p>
