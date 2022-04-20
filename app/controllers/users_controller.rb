@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   before_action :setup_user, only: %i[show destroy]
 
   def index
-    @users = User.all
+    @users = User.where.not(id: current_user)
     respond_to do |format|
       format.html
       format.csv do

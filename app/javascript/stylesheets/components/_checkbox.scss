@@ -1,0 +1,14 @@
+.checkbox {
+  .label {
+    @apply flex items-center;
+
+    input {
+      @apply mr-2;
+
+    }
+
+    *:focus {
+      box-shadow: none;
+    }
+  }
+}
