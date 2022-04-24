@@ -43,7 +43,7 @@ class UsersTest < ApplicationSystemTestCase
   test 'show a user' do
     user = users(:urbi)
 
-    click_on 'Show', match: :first
+    find('.grid a .card').click
 
     assert_content user.name
   end
