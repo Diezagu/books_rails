@@ -1,0 +1,16 @@
+<div class='shadow'>
+  <div class='container mx-auto'>
+    <nav class="nabvar">
+      <div class="menu">
+        <% if user_signed_in? %>
+          <%= image_tag(current_user.avatar.variant(resize_to_limit: [200, 200])) %>
+          <div class="menu-content">
+            <%= link_to 'My books', books_path, method: :get %>
+            <%= link_to 'Edit profile', edit_user_registration_path, method: :get %>
+            <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+          </div>
+        <% end %>
+      </div>
+    </nav>
+  </div>
+</div>
