@@ -12,6 +12,10 @@
     <%= f.file_field :cover, accept: 'image/*' %>
   </div>
   <div class="field">
+    <%= f.label :synopsis %>
+    <%= f.rich_text_area :synopsis %>
+  </div>
+  <div class="field">
     <%= f.label :pages, 'Pages:' %>
     <%= f.number_field :pages %>
   </div>
