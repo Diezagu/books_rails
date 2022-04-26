@@ -13,7 +13,8 @@ class UsersTest < ApplicationSystemTestCase
   end
 
   test 'Edit a user with incorrect values' do
-    click_on 'Edit'
+    find('.navbar .menu').hover
+    click_link 'Edit profile'
 
     fill_in 'Email', with: 'user@exmple.com'
     fill_in 'Name', with: ''
@@ -27,14 +28,15 @@ class UsersTest < ApplicationSystemTestCase
   end
 
   test 'Edit a user' do
-    click_on 'Edit'
-
+    find('.navbar .menu').hover
+    click_link 'Edit profile'
     fill_in 'Email', with: 'user3@exmple.com'
     fill_in 'Name', with: 'Victor'
     fill_in 'Age', with: 12
     fill_in 'user_password', with: '123456'
     fill_in 'Password confirmation', with: '123456'
     fill_in 'user_current_password', with: 'example'
+
     click_on 'Update'
 
     assert_content 'Your account has been updated successfully.'
@@ -55,14 +57,15 @@ class UsersTest < ApplicationSystemTestCase
   end
 
   test 'should show the books of current user' do
-    click_on 'Go to books'
+    find('.navbar .menu').hover
+    click_link 'My books'
 
     assert_content users(:diego).books.first.title
   end
 
   test 'success creating user with correct data' do
-    click_on 'Log out'
-    click_on 'Sign up'
+    sign_out :user
+    visit new_user_registration_path
 
     fill_in 'Email', with: 'user3@exmple.com'
     fill_in 'Name', with: 'Victor'
@@ -75,8 +78,8 @@ class UsersTest < ApplicationSystemTestCase
   end
 
   test 'fails if missing name' do
-    click_on 'Log out'
-    click_on 'Sign up'
+    sign_out :user
+    visit new_user_registration_path
 
     fill_in 'Email', with: 'user3@exmple.com'
     fill_in 'Name', with: ''

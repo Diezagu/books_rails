@@ -1,0 +1,31 @@
+.navbar {
+  --image-size: 3rem;
+  @apply flex justify-end;
+
+  .menu {
+    @apply relative;
+
+    img {
+      height: var(--image-size);
+      width: var(--image-size);
+      @apply rounded-full cursor-pointer;
+    }
+
+    &:hover .menu-content {
+      @apply block;
+    }
+  }
+
+  .menu-content {
+    top: var(--image-size);
+    @apply hidden absolute right-0 bg-white border shadow w-max rounded;
+
+    a {
+      @apply block px-2 py-2 no-underline text-black;
+
+      &:hover {
+        @apply bg-blue-100;
+      }
+    }
+  }
+}
