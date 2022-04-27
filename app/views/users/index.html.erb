@@ -1,10 +1,22 @@
 <h1>Authors</h1>
-<% @users.each do |user| %>
-  <p> <%= user.name %> </p>
-  <p> <%= user.age %> </p>
-  <%= link_to 'Show', user_path(user) %>
-<% end %>
-<div>
+<div class="grid grid-cols-4 gap-x-4 gap-y-4">
+  <% @users.each do |user| %>
+    <%= link_to user_path(user), class: 'no-style col-span-4 md:col-span-2 lg:col-span-1' do %>
+      <div class="card">
+        <div class="card-title">
+          <p><%= user.name %></p>
+        </div>
+        <p><%= "#{user.age} years old" %></p>
+        <% if user.books.any? %>
+          <p><%= "#{user.books.size} published books" %></p>
+        <% else %>
+          <p>No books published yet</p>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="mt-4">
   <%= link_to 'Download Report', users_path(format: :csv) %>
 </div>
 
