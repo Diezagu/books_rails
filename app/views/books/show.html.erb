@@ -6,4 +6,16 @@
   Auhtor: <%= @book.author.name %><br>
   Pages: <%= @book.pages %>
 </p>
-<%= link_to 'Back', books_path %>
+<h3>Comments</h3>
+<% @book.comments.each do |comment| %>
+  <ul>
+    <li>
+      <%= comment.text %>
+      <% if comment.author == current_user %>
+        <%= link_to 'Delete', book_comment_path(@book, comment), method: :delete, data: { confirm: 'Are u sure?' } %>
+      <% end %>
+    <li>
+  </ul>
+<% end %>
+<%= render 'comments/form', book: @book %>
+<%= link_to 'Back', users_path %>
