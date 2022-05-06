@@ -6,6 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :books, foreign_key: 'author_id'
+  has_many :comments, as: :commentable
   has_one_attached :avatar
 
   validates :name, :age, presence: true, allow_blank: false

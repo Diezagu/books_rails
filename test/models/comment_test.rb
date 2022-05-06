@@ -18,7 +18,7 @@ class CommentTest < ActiveSupport::TestCase
   end
 
   test 'it is valid with author and text' do
-    comment = Comment.new(author: users(:diego), text: 'Nice book')
+    comment = Comment.new(author: users(:diego), text: 'Nice book', commentable: books(:first_book))
 
     assert comment.valid?
   end
