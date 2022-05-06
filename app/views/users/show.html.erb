@@ -3,6 +3,17 @@
   <hr>
   <p> Name: <%= @user.name %> </p>
   <p> Age: <%= @user.age %> </p>
+  <% @user.comments.each do |comment| %>
+    <ul>
+      <li>
+        <%= comment.text %>
+        <% if comment.author == current_user %>
+          <%= link_to 'Delete', book_comment_path(@user, comment), method: :delete, data: { confirm: 'Are u sure?' } %>
+        <% end %>
+      <li>
+    </ul>
+  <% end %>
+  <%= render 'comments/form', path: user_comments_path(@user), placeholder: 'Post a comment to author...' %>
   <hr>
   <h2>Books of <%= @user.name %> </h2>
   <% @user.books.each do |book| %>

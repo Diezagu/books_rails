@@ -17,5 +17,5 @@
     <li>
   </ul>
 <% end %>
-<%= render 'comments/form', book: @book %>
+<%= render 'comments/form', path: book_comments_path(@book), placeholder: 'Post a comment...'%>
 <%= link_to 'Back', users_path %>
